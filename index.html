@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jimmy's Links</title>
+  <title>D.Q.A.Z bio</title>
+  <link rel="icon" type="image/jpeg" href="https://static-cdn.jtvnw.net/jtv_user_pictures/356b3043-1049-4ceb-a7c6-c330d7d03fbb-profile_banner-480.jpeg">
   <style>
     body {
       background: #0f0f0f;
@@ -664,6 +665,23 @@
     // Met à jour au chargement et toutes les 30 secondes
     updateDiscordStatus();
     setInterval(updateDiscordStatus, 30000);
+
+    // Animation du titre : D → D.Q → D.Q.A → D.Q.A.Z → (boucle)
+    const pseudo = "D.Q.A.Z";
+    let titleIndex = 1;
+    function animateTitle() {
+      document.title = pseudo.slice(0, titleIndex);
+      titleIndex++;
+      if (titleIndex > pseudo.length) {
+        setTimeout(() => {
+          titleIndex = 1;
+          animateTitle();
+        }, 800); // Pause à la fin du pseudo
+        return;
+      }
+      setTimeout(animateTitle, 350); // Vitesse d'apparition des lettres
+    }
+    animateTitle();
   </script>
 </body>
 </html>
