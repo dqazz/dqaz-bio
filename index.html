@@ -205,7 +205,7 @@
       position: relative;
       opacity: 1;
     }
-    /* Agrandir le fond du profil */
+    
     .profile-card {
       margin: 0 auto;
       margin-top: 3vh;
@@ -213,7 +213,7 @@
       border-radius: 32px;
       box-shadow: 0 8px 40px #000a;
       padding: 3rem 2.5rem 2.5rem 2.5rem;
-      max-width: 520px;      /* <-- Agrandi */
+      max-width: 520px;      
       width: 100%;
       backdrop-filter: blur(12px);
       display: flex;
@@ -224,25 +224,25 @@
       position: relative;
     }
 
-    /* Logos plus petits, ronds, sans fond, plus serrés */
+    
     .links {
       display: flex;
       justify-content: center;
-      gap: 0.7rem;           /* <-- Plus serré */
+      gap: 0.7rem;           
       margin-top: 1.5rem;
     }
 
     .icon-btn {
-      width: 48px;        /* <-- Agrandi */
-      height: 48px;       /* <-- Agrandi */
+      width: 48px;        
+      height: 48px;       
       border-radius: 50%;
-      background: transparent; /* <-- Plus de fond */
+      background: transparent; 
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 1.85rem;    /* <-- Agrandi */
-      box-shadow: none;      /* <-- Plus d'ombre */
+      font-size: 1.85rem;    
+      box-shadow: none;      
       border: none;
       transition: color 0.2s, transform 0.2s;
       cursor: pointer;
@@ -364,8 +364,6 @@
         border-radius: 0 !important;
       }
     }
-
-    /* Ajout du style pour le texte avec effet de glow */
     .pseudo-glow {
       font-size: 2.4rem;
       font-weight: 900;
@@ -497,7 +495,6 @@
       letter-spacing: 1px;
     }
   </style>
-  <!-- Ajoute FontAwesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -594,7 +591,7 @@
       void musicTitle.offsetWidth;
       if (musicTitle.scrollWidth > titleContainer.offsetWidth) {
         const distance = musicTitle.scrollWidth + titleContainer.offsetWidth;
-        const speed = 40; // pixels per second (plus petit = plus lent)
+        const speed = 40; // pixels per second
         const duration = distance / speed;
         musicTitle.style.animation = `marqueeFull ${duration}s linear infinite`;
         musicTitle.classList.add('marquee-animate');
@@ -651,7 +648,7 @@
       welcome.classList.add('hide');
       setTimeout(() => {
         welcome.style.display = 'none';
-        mainContent.style.display = 'block'; // <-- Ajoute cette ligne
+        mainContent.style.display = 'block';
         musicPlayer.style.display = '';
         setTimeout(() => {
           musicPlayer.style.opacity = '1';
@@ -663,7 +660,7 @@
     });
 
     // Background YouTube flou animé
-    const YT_VIDEO_ID = "zxi40gEstl8"; // Mets ici l'ID de ta vidéo
+    const YT_VIDEO_ID = "zxi40gEstl8"; // pour changer ma video
     const ytDiv = document.getElementById('yt-bg');
     ytDiv.innerHTML = `<iframe
       src="https://www.youtube.com/embed/${YT_VIDEO_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${YT_VIDEO_ID}&modestbranding=1&showinfo=0&rel=0"
@@ -673,7 +670,7 @@
       tabindex="-1"
     ></iframe>`;
 
-    // Statut Discord en direct avec Lanyard API
+    // Statut Discord en direct
     const discordId = "1041470758410518589";
     const discordStatusDot = document.getElementById("discord-status-dot");
     const discordAvatar = document.getElementById("discord-avatar");
