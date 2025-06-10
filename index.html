@@ -256,35 +256,112 @@
     }
 
     @media (max-width: 600px) {
-      #music-player {
-        left: 8px;
-        bottom: 8px;
-        padding: 8px 10px;
-        font-size: 0.95rem;
-        min-width: 180px;
-        max-width: 98vw;
+      body {
+        padding: 0.5rem;
+        font-size: 1rem;
       }
-      #music-title-container {
-        max-width: 90px;
-      }
-      #music-img {
-        width: 32px;
-        height: 32px;
+      .welcome-overlay {
+        padding: 0 1rem;
       }
       .profile-card {
-        padding: 1.5rem;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+        max-width: 98vw;
+        border-radius: 18px;
+        gap: 1.1rem;
       }
       .profile-img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0.2rem;
       }
-      .pseudo {
-        font-size: 1.5rem;
+      .pseudo-glow {
+        font-size: 1.3rem;
+        margin-bottom: 0.2rem;
+        margin-top: 0.2rem;
+      }
+      .discord-card {
+        max-width: 98vw;
+        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+        border-radius: 12px;
+        gap: 0.7rem;
+      }
+      .discord-avatar-wrap {
+        width: 38px;
+        height: 38px;
+      }
+      .discord-avatar {
+        width: 38px;
+        height: 38px;
+        border-width: 2px;
+      }
+      .discord-status-dot {
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+        right: 1px;
+        bottom: 1px;
+      }
+      .discord-username {
+        font-size: 1rem;
+      }
+      .discord-status-text,
+      .discord-activity {
+        font-size: 0.92rem;
+      }
+      .links {
+        gap: 0.3rem;
+        margin-top: 0.7rem;
       }
       .icon-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+      }
+      .icon-btn img {
+        width: 60%;
+        height: 60%;
+      }
+      #music-player {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        min-width: 0;
+        max-width: 100vw;
+        border-radius: 0;
+        padding: 4px 1vw;
+        font-size: 0.85rem;
+        gap: 0.3rem;
+        height: 44px;
+      }
+      .music-img {
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+      }
+      #music-title-container {
+        max-width: 50px;
+        height: 1em;
+      }
+      #prev-btn, #next-btn, #mute-btn {
+        font-size: 1rem !important;
+        padding: 0 2px;
+      }
+      #volume-slider {
+        width: 50px;
+      }
+      .site-credit {
+        font-size: 0.85rem;
+        right: 6px;
+        bottom: 4px;
+      }
+      #yt-bg iframe,
+      #yt-bg video {
+        min-width: 100vw !important;
+        min-height: 100vh !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
       }
     }
 
