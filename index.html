@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D.Q.A.Z bio</title>
   <link rel="icon" type="image/jpeg" href="https://static-cdn.jtvnw.net/jtv_user_pictures/356b3043-1049-4ceb-a7c6-c330d7d03fbb-profile_banner-480.jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
       background: #0f0f0f;
@@ -38,9 +39,7 @@
       opacity: 0;
       animation: fadeIn 1s ease 0.2s forwards;
     }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
     .enter-btn {
       margin-top: 2rem;
       padding: 1.2rem 3rem;
@@ -62,54 +61,6 @@
       80% { opacity: 1; transform: translateY(8px);}
       100% { opacity: 1; transform: translateY(0);}
     }
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      opacity: 1;
-      transform: none;
-      animation: none;
-    }
-    .profile img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #333;
-      box-shadow: 0 8px 32px #0008;
-    }
-    .profile h1 {
-      margin: 0;
-      font-size: 3.5rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #fff;
-      text-shadow: 0 2px 16px #000a;
-    }
-    p {
-      margin-bottom: 2rem;
-      color: #aaa;
-    }
-    a {
-      display: block;
-      margin: 1rem auto;
-      padding: 1rem 2rem;
-      background: #1e1e1e;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      max-width: 300px;
-      transition: 0.3s;
-      font-size: 1.2rem;
-      box-shadow: 0 2px 8px #0004;
-    }
-    a:hover {
-      background: #333;
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 4px 16px #0006;
-    }
     #music-player {
       position: fixed;
       left: 24px;
@@ -118,25 +69,23 @@
       color: #fff;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.7rem;
       border-radius: 16px;
       box-shadow: 0 2px 12px #0007;
-      padding: 12px 20px;
+      padding: 12px 18px;
       z-index: 2000;
       font-family: inherit;
-      font-size: 1rem;
-      min-width: 320px;
-      max-width: 420px;
+      font-size: 1.1rem;
+      min-width: 260px;
+      max-width: 340px;
+      height: 54px;
       user-select: none;
       transition: opacity 0.5s;
-    }
-    #music-player:hover .music-img {
-      transform: scale(1.18);
-      box-shadow: 0 4px 24px #ffcc3380;
+      box-sizing: border-box;
     }
     .music-img {
-      width: 48px;
-      height: 48px;
+      width: 38px;
+      height: 38px;
       border-radius: 8px;
       object-fit: cover;
       box-shadow: 0 2px 8px #0006;
@@ -146,10 +95,10 @@
     #music-title-container {
       overflow: hidden;
       flex: 1;
-      max-width: 280px;
+      max-width: 120px;
       display: flex;
       align-items: center;
-      height: 1.4em;
+      height: 1.3em;
       position: relative;
     }
     #music-title {
@@ -171,12 +120,36 @@
       0% { transform: translateX(100%);}
       100% { transform: translateX(-100%);}
     }
+    #prev-btn, #next-btn, #mute-btn {
+      font-size: 1.35rem !important;
+      padding: 0 6px;
+      min-width: 32px;
+      min-height: 32px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    #volume-slider {
+      width: 70px;
+      min-width: 40px;
+      max-width: 90px;
+      height: 18px;
+      vertical-align: middle;
+      margin: 0 4px;
+    }
     #yt-bg {
       position: fixed;
       inset: 0;
       z-index: 0;
       overflow: hidden;
       pointer-events: none;
+      transition: opacity 0.7s cubic-bezier(.22,1,.36,1);
+    }
+    #yt-bg.theme-fade {
+      opacity: 0;
     }
     #yt-bg iframe {
       position: absolute;
@@ -197,15 +170,11 @@
       0% { transform: translate(-50%, -50%) scale(1.08);}
       100% { transform: translate(-50%, -50%) scale(1.18);}
     }
-    body, html {
-      background: #111;
-    }
     #main-content {
       z-index: 10;
       position: relative;
       opacity: 1;
     }
-    
     .profile-card {
       margin: 0 auto;
       margin-top: 3vh;
@@ -223,15 +192,12 @@
       z-index: 10;
       position: relative;
     }
-
-    
     .links {
       display: flex;
       justify-content: center;
       gap: 0.7rem;           
       margin-top: 1.5rem;
     }
-
     .icon-btn {
       width: 48px;        
       height: 48px;       
@@ -249,12 +215,205 @@
       text-decoration: none;
       padding: 0;
     }
-
     .icon-btn:hover {
       color: #ffcc33;
       transform: scale(1.15);
     }
-
+    .pseudo-glow {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      text-shadow:
+        0 0 8px #fffb008f,
+        0 0 16px #b3c000cc,
+        0 2px 16px #000a;
+      filter: brightness(1.1);
+      margin-top: 0.5rem;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #222;
+      box-shadow: 0 4px 24px #0008;
+      margin-bottom: 0.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .discord-card {
+      display: flex;
+      align-items: center;
+      background: rgba(30,30,35,0.85);
+      border-radius: 18px;
+      padding: 1.1rem 1.6rem 1.1rem 1.1rem;
+      margin: 0 auto 1.2rem auto;
+      box-shadow: 0 2px 16px #0006;
+      max-width: 340px;
+      min-width: 0;
+      gap: 1.1rem;
+      position: relative;
+    }
+    .discord-avatar-wrap {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+    }
+    .discord-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #23272a;
+      background: #23272a;
+      display: block;
+    }
+    .discord-status-dot {
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 3px solid #23272a;
+      background: #888;
+      box-shadow: 0 0 0 2px #23272a;
+    }
+    .discord-status-dot.online { background: #43b581; }
+    .discord-status-dot.idle { background: #faa61a; }
+    .discord-status-dot.dnd { background: #f04747; }
+    .discord-status-dot.offline { background: #747f8d; }
+    .discord-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .discord-username {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.25rem;
+      margin-bottom: 0.1rem;
+      text-align: left;
+      text-shadow: 0 2px 8px #23272a80;
+      word-break: break-all;
+    }
+    .discord-status-text {
+      color: #b9bbbe;
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+      text-align: left;
+    }
+    .discord-activity {
+      color: #ffcc33;
+      font-size: 1rem;
+      margin-top: 0.1rem;
+      text-align: left;
+      font-weight: 500;
+      word-break: break-all;
+    }
+    .site-credit {
+      position: fixed;
+      right: 18px;
+      bottom: 10px;
+      color: #aaa;
+      font-size: 1rem;
+      opacity: 0.7;
+      z-index: 5000;
+      font-family: inherit;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: 1px;
+    }
+    #theme-switch {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 3000;
+    }
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .switch input {
+      display: none;
+    }
+    .slider {
+      position: relative;
+      width: 54px;
+      height: 28px;
+      background: #222;
+      border-radius: 18px;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .slider .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .slider .icon img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 2px #0008);
+    }
+    .slider .icon.parc {
+      left: 2px;
+      opacity: 1;
+      z-index: 2;
+    }
+    .slider .icon.bmw {
+      right: 2px;
+      opacity: 0.5;
+      z-index: 2;
+    }
+    .slider:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #0004;
+      transition: left 0.3s;
+      z-index: 3;
+      opacity: 0.7;
+    }
+    .switch input:checked + .slider:before {
+      left: 28px;
+    }
+    .switch input:checked + .slider .icon.parc {
+      opacity: 0.5;
+    }
+    .switch input:checked + .slider .icon.bmw {
+      opacity: 1;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      #music-player:hover .music-img {
+        transform: scale(1.35);
+        box-shadow: 0 4px 24px #ffcc3380;
+        transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s;
+        z-index: 2;
+      }
+    }
     @media (max-width: 600px) {
       body {
         padding: 0.5rem;
@@ -327,28 +486,32 @@
         bottom: 0;
         top: auto;
         min-width: 0;
-        max-width: 100vw;
+        max-width: 98vw;
         border-radius: 0;
-        padding: 4px 1vw;
-        font-size: 0.85rem;
-        gap: 0.3rem;
+        padding: 8px 2vw;
+        font-size: 1rem;
+        gap: 0.4rem;
         height: 44px;
       }
       .music-img {
-        width: 22px;
-        height: 22px;
-        border-radius: 4px;
+        width: 28px;
+        height: 28px;
       }
       #music-title-container {
-        max-width: 50px;
-        height: 1em;
+        max-width: 60px;
       }
       #prev-btn, #next-btn, #mute-btn {
-        font-size: 1rem !important;
-        padding: 0 2px;
+        font-size: 1.1rem !important;
+        min-width: 22px;
+        min-height: 22px;
+        width: 22px;
+        height: 22px;
       }
       #volume-slider {
-        width: 50px;
+        width: 36px;
+        min-width: 20px;
+        max-width: 44px;
+        height: 12px;
       }
       .site-credit {
         font-size: 0.85rem;
@@ -364,138 +527,7 @@
         border-radius: 0 !important;
       }
     }
-    .pseudo-glow {
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-      text-align: center;
-      text-shadow:
-        0 0 8px #fffb008f,
-        0 0 16px #b3c000cc,
-        0 2px 16px #000a;
-      filter: brightness(1.1);
-      margin-top: 0.5rem;
-    }
-
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #222;
-      box-shadow: 0 4px 24px #0008;
-      margin-bottom: 0.5rem;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .discord-status {
-      margin: 0.2rem 0 0.8rem 0;
-      font-size: 1.1rem;
-      color: #7289da;
-      font-weight: 600;
-      text-align: center;
-      text-shadow: 0 2px 8px #23272a80;
-      letter-spacing: 0.5px;
-    }
-
-    .discord-card {
-      display: flex;
-      align-items: center;
-      background: rgba(30,30,35,0.85);
-      border-radius: 18px;
-      padding: 1.1rem 1.6rem 1.1rem 1.1rem;
-      margin: 0 auto 1.2rem auto;
-      box-shadow: 0 2px 16px #0006;
-      max-width: 340px;
-      min-width: 0;
-      gap: 1.1rem;
-      position: relative;
-    }
-
-    .discord-avatar-wrap {
-      position: relative;
-      width: 56px;
-      height: 56px;
-      flex-shrink: 0;
-    }
-
-    .discord-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #23272a;
-      background: #23272a;
-      display: block;
-    }
-
-    .discord-status-dot {
-      position: absolute;
-      right: 2px;
-      bottom: 2px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 3px solid #23272a;
-      background: #888;
-      box-shadow: 0 0 0 2px #23272a;
-    }
-
-    .discord-status-dot.online { background: #43b581; }
-    .discord-status-dot.idle { background: #faa61a; }
-    .discord-status-dot.dnd { background: #f04747; }
-    .discord-status-dot.offline { background: #747f8d; }
-
-    .discord-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .discord-username {
-      font-weight: 700;
-      color: #fff;
-      font-size: 1.25rem;
-      margin-bottom: 0.1rem;
-      text-align: left;
-      text-shadow: 0 2px 8px #23272a80;
-      word-break: break-all;
-    }
-
-    .discord-status-text {
-      color: #b9bbbe;
-      font-size: 1rem;
-      margin-bottom: 0.1rem;
-      text-align: left;
-    }
-
-    .discord-activity {
-      color: #ffcc33;
-      font-size: 1rem;
-      margin-top: 0.1rem;
-      text-align: left;
-      font-weight: 500;
-      word-break: break-all;
-    }
-
-    .site-credit {
-      position: fixed;
-      right: 18px;
-      bottom: 10px;
-      color: #aaa;
-      font-size: 1rem;
-      opacity: 0.7;
-      z-index: 5000;
-      font-family: inherit;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: 1px;
-    }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <div class="welcome-overlay" id="welcome">
@@ -504,13 +536,13 @@
   </div>
   <div id="music-player" style="display:none; opacity:0;">
     <img id="music-img" src="" alt="cover" class="music-img">
-    <button id="prev-btn" title="Précédent" style="background:none;border:none;color:#ffcc33;font-size:1.3rem;cursor:pointer;">⏮️</button>
+    <button id="prev-btn" title="Précédent" style="background:none;border:none;color:#ffcc33;cursor:pointer;">⏮️</button>
     <div id="music-title-container">
       <span id="music-title" class="marquee-animate">Titre</span>
     </div>
-    <button id="next-btn" title="Suivant" style="background:none;border:none;color:#ffcc33;font-size:1.3rem;cursor:pointer;">⏭️</button>
+    <button id="next-btn" title="Suivant" style="background:none;border:none;color:#ffcc33;cursor:pointer;">⏭️</button>
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.1">
-    <button id="mute-btn" title="Mute" style="background:none;border:none;color:#ffcc33;font-size:1.3rem;cursor:pointer;">🔊</button>
+    <button id="mute-btn" title="Mute" style="background:none;border:none;color:#ffcc33;cursor:pointer;">🔊</button>
   </div>
   <audio id="bgMusic" loop></audio>
   <div id="main-content" style="display:none;">
@@ -529,29 +561,27 @@
         </div>
       </div>
       <div class="links">
-        <a class="icon-btn" href="https://instagram.com/jimmy_coaster" target="_blank" title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a class="icon-btn" href="https://www.youtube.com/@JimmyCoaster" target="_blank" title="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a class="icon-btn" href="https://open.spotify.com/user/3145bzcws77iooqcfn3xhbitc3ga?si=68985fe5efda4588" target="_blank" title="Spotify">
-          <i class="fab fa-spotify"></i>
-        </a>
-        <a class="icon-btn" href="https://www.roblox.com/fr/users/109863277/profile" target="_blank" title="Roblox">
-          <img src="https://www.citypng.com/public/uploads/preview/hd-roblox-white-symbol-sign-icon-logo-png-701751694787435ra1r2desi8.png" alt="Roblox" style="width: 60%; height: 60%; object-fit: contain; display: block;">
-        </a>
-        <a class="icon-btn" href="https://steamcommunity.com/id/dqaz/" target="_blank" title="Steam">
-          <i class="fab fa-steam"></i>
-        </a>
+        <a class="icon-btn" href="https://instagram.com/jimmy_coaster" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="icon-btn" href="https://www.youtube.com/@JimmyCoaster" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a class="icon-btn" href="https://open.spotify.com/user/3145bzcws77iooqcfn3xhbitc3ga?si=68985fe5efda4588" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+        <a class="icon-btn" href="https://www.roblox.com/fr/users/109863277/profile" target="_blank" title="Roblox"><img src="https://www.citypng.com/public/uploads/preview/hd-roblox-white-symbol-sign-icon-logo-png-701751694787435ra1r2desi8.png" alt="Roblox" style="width: 60%; height: 60%; object-fit: contain; display: block;"></a>
+        <a class="icon-btn" href="https://steamcommunity.com/id/dqaz/" target="_blank" title="Steam"><i class="fab fa-steam"></i></a>
       </div>
     </div>
   </div>
   <div id="yt-bg"></div>
   <div class="site-credit">Site by D.Q.A.Z</div>
+  <div id="theme-switch">
+    <label class="switch">
+      <input type="checkbox" id="switchTheme">
+      <span class="slider">
+        <span class="icon parc"><img src="https://thecoasterkings.com/wp-content/uploads/2018/04/DSC_1026.jpg" alt="Parc"></span>
+        <span class="icon bmw"><img src="https://media.discordapp.net/attachments/1383417505418182777/1383768982904897646/image-removebg-preview.png?ex=684ffeca&is=684ead4a&hm=f90f16bd18c63c78e02bf9abf55060d6ddd9a8d6f42f522bf21673b2d453c8f9&=&quality=lossless" alt="BMW"></span>
+      </span>
+    </label>
+  </div>
   <script>
-    // Playlist de musiques avec logo
-    const musics = [
+    const musicsParc = [
       {
         title: "Fly - Phantasialand",
         src: "https://audio.jukehost.co.uk/gTTymOBNKetiCuO1vuUqHbZtBEjKiJGm.mp3",
@@ -563,14 +593,33 @@
         img: "https://pbs.twimg.com/media/DY1R6PkW4AEHh3I.jpg:large"
       },
       {
-        title: "Chiapas - Phantasialand",
-        src: "https://audio.jukehost.co.uk/uv2iORqWvOjAJBJETQo4I3J1T9KvA7wK.mp3",
-        img: "https://m.media-amazon.com/images/I/61ezIFIsFWL._UXNaN_FMjpg_QL85_.jpg"
+        title: "Crystal Castles - Transgender",
+        src: "https://audio.jukehost.co.uk/NmDSIa6EwqHgnoXQVC8rKEJeOtmysBD9.mp3",
+        img: "https://f4.bcbits.com/img/a0831846353_10.jpg"
       }
     ];
-
-    let currentIndex = Math.floor(Math.random() * musics.length);
-
+    const musicsBMW = [
+      {
+        title: "Interworld Metamorphosis",
+        src: "https://audio.jukehost.co.uk/q0UNuXgk3LYYgTCjxKuhmNSt1zv8dgYY.mp3",
+        img: "https://cdn.discordapp.com/attachments/1383417505418182777/1383774476692623451/a2815415044_16.jpg?ex=685003e8&is=684eb268&hm=5a9c9de7fcc0971f266968447ea3014b42a0429c0d460560c11499302108daf1&"
+      },
+      {
+        title: "Zouzout - Papyrus",
+        src: "https://audio.jukehost.co.uk/Px7NVFo8cIbPDHqyhnQl4CPnEIfMLVHU.mp3",
+        img: "https://cdn.discordapp.com/attachments/1383417505418182777/1383776824265408514/telechargement.jpg?ex=68500618&is=684eb498&hm=180a2b5e99e1cdebfb1e4fafd90016c6768210a9d343dbd6657f3e5e120b3895&"
+      },
+      {
+        title: "Crystal Castles - Transgender",
+        src: "https://audio.jukehost.co.uk/NmDSIa6EwqHgnoXQVC8rKEJeOtmysBD9.mp3",
+        img: "https://f4.bcbits.com/img/a0831846353_10.jpg"
+      }
+    ];
+    const bgParc = `<iframe src="https://www.youtube.com/embed/zxi40gEstl8?autoplay=1&mute=1&controls=0&loop=1&playlist=zxi40gEstl8&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen tabindex="-1"></iframe>`;
+    const bgBMW = `<iframe src="https://www.youtube.com/embed/IqM0pHCRUq0?autoplay=1&mute=1&controls=0&loop=1&playlist=IqM0pHCRUq0&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen tabindex="-1"></iframe>`;
+    let currentTheme = "parc";
+    let musics = musicsParc;
+    let currentIndex = 0;
     const welcome = document.getElementById('welcome');
     const mainContent = document.getElementById('main-content');
     const enterBtn = document.getElementById('enterBtn');
@@ -583,21 +632,20 @@
     const muteBtn = document.getElementById('mute-btn');
     const musicImg = document.getElementById('music-img');
     const titleContainer = document.getElementById('music-title-container');
-
-    // Marquee effect
+    const switchTheme = document.getElementById('switchTheme');
+    const ytDiv = document.getElementById('yt-bg');
     function updateMarquee() {
       musicTitle.classList.remove('marquee-animate');
       musicTitle.style.animation = "none";
       void musicTitle.offsetWidth;
       if (musicTitle.scrollWidth > titleContainer.offsetWidth) {
         const distance = musicTitle.scrollWidth + titleContainer.offsetWidth;
-        const speed = 40; // pixels per second
+        const speed = 40;
         const duration = distance / speed;
         musicTitle.style.animation = `marqueeFull ${duration}s linear infinite`;
         musicTitle.classList.add('marquee-animate');
       }
     }
-
     function loadMusic(index) {
       bgMusic.src = musics[index].src;
       musicTitle.textContent = musics[index].title;
@@ -605,45 +653,31 @@
       bgMusic.load();
       setTimeout(updateMarquee, 100);
     }
-
-    // Volume à 10% par défaut
     bgMusic.volume = 0.1;
     volumeSlider.value = 0.1;
-
-    // Volume slider
     volumeSlider.addEventListener('input', () => {
       bgMusic.volume = volumeSlider.value;
       muteBtn.textContent = bgMusic.volume == 0 || bgMusic.muted ? "🔇" : "🔊";
     });
-
-    // Mute
     muteBtn.addEventListener('click', () => {
       bgMusic.muted = !bgMusic.muted;
       muteBtn.textContent = bgMusic.muted ? "🔇" : "🔊";
     });
-
-    // Précédent
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + musics.length) % musics.length;
       loadMusic(currentIndex);
       bgMusic.play();
     });
-
-    // Suivant
     nextBtn.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % musics.length;
       loadMusic(currentIndex);
       bgMusic.play();
     });
-
-    // Auto next
     bgMusic.addEventListener('ended', () => {
       currentIndex = (currentIndex + 1) % musics.length;
       loadMusic(currentIndex);
       bgMusic.play();
     });
-
-    // Entrer
     enterBtn.addEventListener('click', () => {
       welcome.classList.add('hide');
       setTimeout(() => {
@@ -658,26 +692,12 @@
       loadMusic(currentIndex);
       bgMusic.play();
     });
-
-    // Background YouTube flou animé
-    const YT_VIDEO_ID = "zxi40gEstl8"; // pour changer ma video
-    const ytDiv = document.getElementById('yt-bg');
-    ytDiv.innerHTML = `<iframe
-      src="https://www.youtube.com/embed/${YT_VIDEO_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${YT_VIDEO_ID}&modestbranding=1&showinfo=0&rel=0"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      tabindex="-1"
-    ></iframe>`;
-
-    // Statut Discord en direct
     const discordId = "1041470758410518589";
     const discordStatusDot = document.getElementById("discord-status-dot");
     const discordAvatar = document.getElementById("discord-avatar");
     const discordUsername = document.getElementById("discord-username");
     const discordStatusText = document.getElementById("discord-status-text");
     const discordActivity = document.getElementById("discord-activity");
-
     function timeAgo(ts) {
       const now = Date.now();
       const diff = Math.floor((now - ts) / 1000);
@@ -686,7 +706,6 @@
       if (diff < 86400) return `last seen ${Math.floor(diff/3600)} hour${Math.floor(diff/3600)>1?'s':''} ago`;
       return `last seen ${Math.floor(diff/86400)} day${Math.floor(diff/86400)>1?'s':''} ago`;
     }
-
     function updateDiscordStatus() {
       fetch(`https://api.lanyard.rest/v1/users/${discordId}`)
         .then(res => res.json())
@@ -697,17 +716,13 @@
             return;
           }
           const d = data.data;
-          // Avatar
           discordAvatar.src = d.discord_user.avatar
             ? `https://cdn.discordapp.com/avatars/${discordId}/${d.discord_user.avatar}.png?size=128`
             : "https://cdn.discordapp.com/embed/avatars/0.png";
-          // Pseudo
           discordUsername.textContent = d.discord_user.username + (d.discord_user.discriminator && d.discord_user.discriminator !== "0" ? "#" + d.discord_user.discriminator : "");
-          // Statut
           let status = d.discord_status;
           discordStatusDot.className = "discord-status-dot " + (status === "online" ? "online" : status === "idle" ? "idle" : status === "dnd" ? "dnd" : "offline");
           if (status === "offline" && d?.activities?.length === 0) {
-            // Affiche "last seen" si hors ligne et aucune activité
             if (d?.last_seen) {
               discordStatusText.textContent = timeAgo(d.last_seen);
             } else {
@@ -715,7 +730,6 @@
             }
             discordActivity.textContent = "";
           } else {
-            // Statut texte
             switch (status) {
               case "online": discordStatusText.textContent = "🟢 En ligne"; break;
               case "idle": discordStatusText.textContent = "🌙 Inactif"; break;
@@ -723,20 +737,16 @@
               case "offline": discordStatusText.textContent = "⚫ Hors ligne"; break;
               default: discordStatusText.textContent = "Statut inconnu";
             }
-            // Activité (jeu, Spotify, etc.)
             let activity = "";
             if (d.activities && d.activities.length > 0) {
-              // Spotify
               const spotify = d.activities.find(a => a.type === 2 && a.name === "Spotify");
               if (spotify) {
                 activity = `🎵 Écoute Spotify : <b>${spotify.details}</b> - ${spotify.state}`;
               } else {
-                // Jeu ou autre activité
                 const game = d.activities.find(a => a.type === 0);
                 if (game) {
                   activity = `🎮 ${game.name}`;
                 } else {
-                  // Custom status
                   const custom = d.activities.find(a => a.type === 4 && a.state);
                   if (custom) activity = custom.state;
                 }
@@ -750,12 +760,8 @@
           discordActivity.textContent = "";
         });
     }
-
-    // Met à jour au chargement et toutes les 30 secondes
     updateDiscordStatus();
     setInterval(updateDiscordStatus, 30000);
-
-    // Animation du titre : D → D.Q → D.Q.A → D.Q.A.Z → (boucle)
     const pseudo = "D.Q.A.Z";
     let titleIndex = 1;
     function animateTitle() {
@@ -765,12 +771,37 @@
         setTimeout(() => {
           titleIndex = 1;
           animateTitle();
-        }, 800); // Pause à la fin du pseudo
+        }, 800);
         return;
       }
-      setTimeout(animateTitle, 350); // Vitesse d'apparition des lettres
+      setTimeout(animateTitle, 350);
     }
     animateTitle();
+    function setTheme(theme) {
+      currentTheme = theme;
+      ytDiv.classList.add('theme-fade');
+      setTimeout(() => {
+        if (theme === "parc") {
+          musics = musicsParc;
+          ytDiv.innerHTML = bgParc;
+          switchTheme.checked = false;
+        } else {
+          musics = musicsBMW;
+          ytDiv.innerHTML = bgBMW;
+          switchTheme.checked = true;
+        }
+        currentIndex = Math.floor(Math.random() * musics.length);
+        loadMusic(currentIndex);
+        bgMusic.play();
+        ytDiv.classList.remove('theme-fade');
+      }, 350);
+    }
+    switchTheme.addEventListener('change', (e) => {
+      setTheme(e.target.checked ? "bmw" : "parc");
+    });
+    const themes = ["parc", "bmw"];
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+    setTheme(randomTheme);
   </script>
 </body>
 </html>
